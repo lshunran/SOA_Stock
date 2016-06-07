@@ -1,0 +1,76 @@
+.mynavbar{
+    padding-left: 200px;
+}
+
+.nav-context p{
+    margin-top: 15px;
+}
+#mytab{
+    padding: 0 35px 0 25px ;
+}
+.mytab-li{
+    padding: 0 10px;
+}
+.my-btn{
+    margin-top: 8px;
+
+}
+.mynavbar-right{
+    padding-right: 160px;
+}
+.stock-msg{
+    margin-top: 61px;
+    width: 50%;
+}
+.stock-name{
+    font-size: 15pt;
+}
+.stock-updown{
+    font-size: 13.5pt;
+}
+.current-time{
+    font-size: 10pt;
+    padding-left: 420px;
+}
+.topTable td{
+    padding: 5px ;
+    padding-right: 20px;
+}
+.stock-chart{
+width: 50%;
+}
+.current-pic{
+    width: 560px;
+    height: 350px;
+}
+.left-panel{
+    width: 20%;
+    margin-top:71px;
+    margin-left: 20px;
+}
+.choose-card{
+    margin-top: 0px;
+    width: 50%;
+}
+.media-object{
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+}
+
+.exchange-table{
+    width: 50%;
+}
+.deal{
+    padding-top: 70px;
+    padding-left: 1090px;
+    padding-right: 30px;
+}
+
+.inputarea{
+    width: 50%;
+}
+.input-footer{
+    padding: 10px;
+    padding-left: 88%;
+}

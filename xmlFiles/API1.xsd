@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="QuoteData">
+<xs:complexType>
+  <xs:sequence>
+  	<xs:element name="StockSymbol" type="xs:string"/>
+  	<xs:element name="LastTradeAmount" type="xs:string"/>
+  	<xs:element name="StockChange" type="xs:string"/>
+  	<xs:element name="OpenAmount" type="xs:string"/>
+  	<xs:element name="DayHigh" type="xs:string"/>
+  	<xs:element name="DayLow" type="xs:string"/>
+  	<xs:element name="PrevCls" type="xs:string"/>
+  	<xs:element name="ChangePercent" type="xs:string"/>
+  	<xs:element name="FiftyTwoWeekRange" type="xs:string"/>
+  	<xs:element name="EarnPerShare" type="xs:string"/>
+  	<xs:element name="PE" type="xs:string"/>
+  	<xs:element name="CompanyName" type="xs:string"/>
+  	<xs:element name="QuoteError" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>
+

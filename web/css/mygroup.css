@@ -1,0 +1,152 @@
+.mynavbar{
+    padding-left: 200px;
+}
+
+.nav-context p{
+    margin-top: 15px;
+}
+#mytab{
+    padding: 0 35px 0 25px ;
+}
+.mytab-li{
+    padding: 0 10px;
+}
+.my-btn{
+    margin-top: 8px;
+
+}
+.mynavbar-right{
+    padding-right: 160px;
+}
+.focus-on-stock{
+    padding-top: 70px;
+}
+.focus-on-stock-list{
+    height: 427px;
+    overflow: scroll;
+}
+.focus-head{
+    height: 38px;
+    text-align: center;
+    font-size: 25px;
+    background-color: #5BC0DE;
+    color: #ffffff;
+}
+.hold-head{
+    height: 38px;
+    text-align: center;
+    font-size: 25px;
+    background-color: #337AB7;
+    color: #ffffff;
+}
+.stock-price{
+    padding-left: 100px;
+}
+
+.hold-stock-list{
+    overflow: scroll;
+
+}
+.hold-stock-list a{
+    width: 1055px;
+}
+.list-table{
+    overflow: scroll;
+    height: 370px;
+
+}
+.stock-percent{
+     padding-left: 20px;
+ }
+.stock-updown{
+    padding-left: 20px;
+}
+.speed{
+    padding-left: 20px;
+}
+.total-hand{
+    padding-left: 20px;
+}
+.exchange-hand{
+    padding-left: 20px;
+}
+.liangbi{
+    padding-left: 20px;
+}
+.shiyinglv{
+    padding-left: 20px;
+}
+.xianshou{
+    padding-left: 20px;
+}
+.kaipan{
+    padding-left: 20px;
+}
+.zuoshou{
+    padding-left: 20px;
+}
+.zuigao{
+    padding-left: 20px;
+}
+.zuidi{
+    padding-left: 20px;
+}
+.weibi{
+    padding-left: 20px;
+}
+.zhenfu{
+    padding-left: 20px;
+}
+.item{
+    color: red;
+}
+/*.list-header{*/
+   /*width: 830px;*/
+/*}*/
+.current-charts{
+    width: 715px;
+    height: 370px;
+    border: #cccccc 1px solid;
+}
+.charts,.five-level{
+    float: left;
+}
+.charts{
+    width: 563px;
+    height: 370px;
+    background-color: #269abc;
+}
+.five-level{
+    width: 150px;
+    height:360px;
+
+}
+.param{
+    width: 715px;
+}
+.numcanbuy{
+    width: 54%;
+}
+.confirm,.numcanbuy{
+    float: left;
+    padding-top: 10px;
+}
+.confirm{
+    padding-left: 50px;
+}
+.list-table tr{
+    cursor :hand;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="stockPU">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>entity.User</class>
+        <class>entity.Comment</class>
+        <class>entity.Focus</class>
+        <class>entity.Follow</class>
+        <class>entity.Group</class>
+        <class>entity.Hold</class>
+        <class>entity.Stock</class>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/stockdb"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.user" value="root"/>
+            <property name="eclipselink.jdbc.password" value="root"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,17 @@
+<QuoteData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="API1.xsd" xmlns="http://ws.cdyne.com/">
+<StockSymbol>SINA</StockSymbol>
+<LastTradeAmount>49.99</LastTradeAmount>
+<LastTradeDateTime>2016-04-15T16:00:00</LastTradeDateTime>
+<StockChange>-0.09</StockChange>
+<OpenAmount>50.20</OpenAmount>
+<DayHigh>50.20</DayHigh>
+<DayLow>49.76</DayLow>
+<StockVolume>511785</StockVolume>
+<PrevCls>50.08</PrevCls>
+<ChangePercent>-0.18%</ChangePercent>
+<FiftyTwoWeekRange>32.61 - 61.25</FiftyTwoWeekRange>
+<EarnPerShare>1.19</EarnPerShare>
+<PE>42.08</PE>
+<CompanyName>Sina Corporation</CompanyName>
+<QuoteError>false</QuoteError>
+</QuoteData>

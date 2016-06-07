@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="stocks">
+<xs:complexType>
+  <xs:sequence>
+  	<xs:element name="stock">
+      <xs:complexType>
+        <xs:sequence>
+  	      <xs:element name="symbol" type="xs:string"/>
+        	<xs:element name="ask" type="xs:string"/>
+        	<xs:element name="bid" type="xs:string"/>
+        	<xs:element name="last-trade-date" type="xs:string"/>
+        	<xs:element name="low" type="xs:string"/>
+        	<xs:element name="high" type="xs:string"/>
+        	<xs:element name="low-52-weeks" type="xs:string"/>
+        	<xs:element name="high-52-weeks" type="xs:string"/>
+        	<xs:element name="EarnPerShare" type="xs:string"/>
+        	<xs:element name="volume" type="xs:string"/>
+        	<xs:element name="open" type="xs:string"/>
+        	<xs:element name="close" type="xs:string"/>
+        </xs:sequence>
+       </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+</xs:element>
+</xs:schema>
+

@@ -1,0 +1,15 @@
+<stocks xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="API2.xsd" xmlns="http://ws.cdyne.com/">
+<stock>
+<symbol>SINA</symbol>
+<ask>50.15</ask>
+<bid>45.74</bid>
+<last-trade-date>4/15/2016</last-trade-date>
+<low>49.76</low>
+<high>50.20</high>
+<low-52-weeks>32.61</low-52-weeks>
+<high-52-weeks>61.25</high-52-weeks>
+<volume>511785</volume>
+<open>50.20</open>
+<close>49.99</close>
+</stock>
+</stocks>
