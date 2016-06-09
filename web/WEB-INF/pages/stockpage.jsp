@@ -35,6 +35,7 @@
       <ul class="nav navbar-nav" id="mytab">
         <li class="mytab-li"><a href="/userpage">个人主页</a></li>
         <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
+        <li class="mytab-li"><a href="/platform">开放平台</a></li>
        </ul>
 
       <form class="navbar-form navbar-left" action="/stock">
@@ -702,10 +703,11 @@
     success: function (result) {
       if (result) {
 
-        for (var i = 0, l = result.length; i < l; i++) {
+        for (var i = result.length - 1; i >= 0; i--) {
           var o = result[i];
           var temp = [];
-          axisData.push("2013/1/01");
+          console.log(o.date);
+          axisData.push(o.date);
           temp.push(o.open);
           temp.push(o.close);
           temp.push(o.low);

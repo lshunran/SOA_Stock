@@ -25,6 +25,7 @@
       <ul class="nav navbar-nav" id="mytab">
         <li class="mytab-li"><a href="/userpage">个人主页</a></li>
         <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
+        <li class="mytab-li"><a href="/platform">开放平台</a></li>
       </ul>
 
       <form class="navbar-form navbar-left" action="/stock">
