@@ -9,6 +9,7 @@ public interface StockDao {
 
     Stock get_stock_information(String stockCode);
     String get_history(String stockCode);
+    String get_history_tag(String stockCode,String start,String end);
     String get_real_time(String stockCode);
 
     String get_tick_data(String stockCode, String date);

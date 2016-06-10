@@ -7,12 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html ng-app="platform" ng-controller="platformCtrl">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stock Zone</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/mycss.css">
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,87 +76,116 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">您自定义生成的URL:</h3>
+            <h3 class="panel-title">您自定义生成的URL:</h3>(使用时,将[code]换成你所要获取数据的股票的代码)
         </div>
         <div class="panel-body">
-            ...
+            {{final}}
         </div>
     </div>
-    API内容:
+    <h3>API内容:</h3>
     <form>
         <div class="checkbox">
             <div class="row myrow" style="padding-bottom: 15px;">
                 <div class="col-md-2">
+            <label>
+                <input type="checkbox" disabled="true" checked> 股票代码
+            </label>
+                </div>
+            </div>
+            <h3>实时行情数据:</h3>
+            <div class="row myrow" style="padding-bottom: 15px;">
+                <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box1"> 当前价格
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box2"> 股票名称
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box3"> 今日开盘价
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box4"> 昨日收盘价
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box5"> 今日最高价
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box6"> 今日最低价
                     </label>
                 </div>
 
             </div>
 
-            <div class="row myrow">
+            <div class="row myrow" style="padding-bottom: 15px;">
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box7"> 竞买价，即“买一”报价
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box8"> 竞卖价，即“卖一”报价
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box9"> 成交量
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box10"> 成交金额（元 CNY）
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box11"> 日期
                     </label>
                 </div>
                 <div class="col-md-2">
                     <label>
-                        <input type="checkbox"> Check me out
+                        <input type="checkbox" ng-model="box12"> 时间
                     </label>
                 </div>
+
+            </div>
+
+            <h3>历史行情数据:</h3>
+            <h5>获取从某一个时间段的历史数据:</h5>
+            <div class="row myrow" style="padding-bottom: 15px;">
+                <div class="col-lg-12">
+                    开始时间:
+                    <label>
+                        <input type="text" placeholder="格式为YYYY-MM-DD" ng-model="start">
+                    </label>
+                </div>
+                <div class="col-lg-12">
+                    结束时间:
+                    <label>
+                        <input type="text" placeholder="格式为YYYY-MM-DD" ng-model="end">
+                    </label>
+                </div>
+
 
             </div>
         </div>
-        <div class="btn btn-info">生成URL</div>
+        <div class="btn btn-info" ng-click="generateURL(box1,box2,box3,box4,box5,box6,box7,box8,box9,box10,box11,box12,start,end)">生成URL</div>
     </form>
 </div>
 
-
+<script src="/js/angular.min.js"></script>
+<script src="/js/angular-resource.js"></script>
+<script src="/js/platformCtrl.js"></script>
 </body>
 </html>

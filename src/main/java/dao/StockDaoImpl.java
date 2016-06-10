@@ -77,6 +77,14 @@ public class StockDaoImpl implements StockDao {
 
     }
 
+    public String get_history_tag(String stockCode, String start, String end) {
+        String urlAll = "http://localhost:8080/historytag?request="+stockCode+"&start="+start+"&end="+end;
+        String charset = "UTF-8";
+
+
+        return get_data(urlAll,charset);
+    }
+
     public String get_real_time(String stockCode) {
         //构造url
         String urlAll = "http://localhost:8080/realtime?request="+stockCode;
