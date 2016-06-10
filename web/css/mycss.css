@@ -2,18 +2,16 @@ h4{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .mynavbar{
-padding-left: 200px;
+padding-left: 180px;
 }
 
 .nav-context p{
     margin-top: 15px;
 }
 #mytab{
-    padding: 0 35px 0 25px ;
+    padding: 0 5px 0 5px ;
 }
-.mytab-li{
-    padding: 0 10px;
-}
+
 .my-btn{
     margin-top: 8px;
 

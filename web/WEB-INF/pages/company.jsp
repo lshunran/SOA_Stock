@@ -11,9 +11,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stock Zone</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/mycss.css">
-    <script src="./js/echarts.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mycss.css">
+    <script src="/js/echarts.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -24,10 +24,9 @@
 
         <div class="collapse navbar-collapse nav-context">
             <ul class="nav navbar-nav" id="mytab">
-                <li class="mytab-li"><a href="/userpage">个人主页</a></li>
                 <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
-                <li class="mytab-li"><a href="/USAstockpage">开放平台</a></li>
-                <li class="mytab-li"><a href="/USAstockpage">数据分析</a></li>
+                <li class="mytab-li"><a href="/platform">开放平台</a></li>
+                <li class="mytab-li"><a href="/company">数据分析</a></li>
 
             </ul>
 
@@ -68,7 +67,7 @@
     </div>
 </nav>
 
-<div class="container myContent">
+<div class="container myContent" style="width: 70%; margin-top: 90px;">
     <div class="panel panel-default">
         <div class="panel-body">
             StockZone 为专业用户或者企业用户提供了一个专业数据平台,在这里你可以对比各种股票的各类数据或者对由系统为你对数据进行分析,让您的投资先人一步!
