@@ -68,7 +68,38 @@
     </div>
 </nav>
 
-
+<div class="container" style="width: 50%;padding-top: 80px">
+    <h3>消息中心</h3>
+    <ul class="media-list" style="padding-top: 20px">
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src=" " alt="...">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Media Header</h4>
+                <div>…</div>
+            </div>
+        </li>
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src=" " alt="...">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Media Header</h4>
+                <div>…</div>
+            </div>
+        </li>
+        <li class="media">
+        <a class="pull-left" href="#">
+            <img class="media-object" src=" " alt="...">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">Media Header</h4>
+            <div>…</div>
+        </div>
+    </li>
+    </ul>
+</div>
 
 
 <div class="modal fade bs-example-modal-sm" id="myModal">

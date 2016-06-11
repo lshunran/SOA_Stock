@@ -61,7 +61,7 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a tabindex="-1" href="#">Something</a></li>
+              <li><a tabindex="-1" href="/msg">消息中心</a></li>
               <li><a tabindex="-1" href="#">Anything</a></li>
               <li><a tabindex="-1" href="#">action</a></li>
               <li><a tabindex="-1" href="#">telephone</a></li>
