@@ -1,21 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: ashun
-  Date: 16/6/10
-  Time: 下午10:50
+  Date: 16/6/9
+  Time: 下午11:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html ng-app="company" ng-controller="companyCtrl">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stock Zone</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/mycss.css">
-    <script src="/jquery-2.1.4.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/echarts.min.js"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -30,7 +28,6 @@
                 <li class="mytab-li"><a href="/platform">开放平台</a></li>
                 <li class="mytab-li"><a href="/company">数据分析</a></li>
                 <li class="mytab-li"><a href="/subscribe">订阅服务</a></li>
-
 
             </ul>
 
@@ -71,36 +68,51 @@
     </div>
 </nav>
 
-<div class="container myContent" style="width: 70%; margin-top: 90px;">
+<div class="container myContent" style="width: 70%; margin-top: 90px">
     <div class="panel panel-default">
         <div class="panel-body">
-            StockZone 为专业用户或者企业用户提供了一个专业数据平台,在这里你可以对比各种股票的各类数据或者对由系统为你对数据进行分析,让您的投资先人一步!
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <input type="text" class="form-control" id="stockCode" width="100%">
-        </div>
-        <div class="col-md-3">
-            <select class="form-control" id="selectType">
-                <option selected value="a">历史价格</option>
-                <option value="b" >历史成交量</option>
-                <option value="c" >历史价格变动</option>
-                <option value="d" >历史涨跌幅</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <input type="button" class="btn btn-info" value="添加对比" onclick="addCompare()">
+            StockZone 为个人用户和企业用户提供了不同深度的订阅服务,让你第一时间掌握一手信息!个人用户:10支/月,企业用户50支/月
         </div>
     </div>
 
-    <div id="main" style="height:400px;padding-top: 20px"></div>
+    <h4>输入要订阅的股票的代码:</h4>
+    <input type="text" class="form-control">
+    <h4>要订阅的内容:</h4>
+
+    <div class="row" style="padding-bottom: 15px;">
+        <div class="col-md-4">
+            <label>
+                <input type="checkbox" ng-model="box1"> 涨停通知
+            </label>
+        </div>
+        <div class="col-md-4">
+            <label>
+                <input type="checkbox" ng-model="box2"> 跌停通知
+            </label>
+        </div>
+        <div class="col-md-4">
+            <label>
+                <input type="checkbox" ng-model="box2"> 公司公告和资讯
+            </label>
+        </div>
+
+    </div>
+    <form style="padding-top: 15px">
+        <input type="checkbox" > 大单进场警报
+        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
+        <input type="checkbox"  > 成交量警报
+        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
+        <input type="checkbox" > 成交金额警报
+        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:元">
+
+<br>
+    通知方式:
+    <input type="checkbox" > 站内消息推送
+    <input type="checkbox" > 手机短信
+    <input type="text" class="form-control" placeholder="输入手机号码" style="width: 30%">
+    </form>
+    <input type="button" class="btn btn-info" value="确认订阅" style="margin-top: 15px">
 </div>
-
-
-
-
-
 
 
 
@@ -176,12 +188,11 @@
     </div>
 </div>
 
-
 <script src="/js/angular.min.js"></script>
 <script src="/js/angular-resource.js"></script>
-<script src="/js/companyCtrl.js"></script>
-
-
+<script src="/js/platformCtrl.js"></script>
+<script src="/jquery-2.1.4.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script type="application/javascript">
     $(function(){
 
@@ -217,142 +228,5 @@
     })
 
 </script>
-
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-    myChart.showLoading({
-        text: '正在努力的读取数据中...',    //loading话术
-    });
-
-    var axisData = [];
-    var data1 = [];
-    var name;
-    var legendData = [];
-    var num = 0;
-
-    // 指定图表的配置项和数据
-    option = {
-        title: {
-            text: '历史数据对比'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data:[]
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-//            data: ['周一','周二','周三','周四','周五','周六','周日']
-            data:[]
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                type:'line',
-                data:[]
-            },
-            {
-                type:'line',
-                data:[]
-            },
-            {
-
-                type:'line',
-                data:[]
-            },
-            {
-                name:'',
-                type:'line',
-                data:[]
-            },
-            {
-                name:'',
-                type:'line',
-                data:[]
-            }
-        ]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-    myChart.hideLoading();
-
-
-    function addCompare() {
-        console.log($("#selectType option:selected").val());
-        if(num > 4){
-            alert("最多添加5支股票!");
-            return;
-        }
-        myChart.showLoading({
-            text: '正在努力的读取数据中...',    //loading话术
-        });
-        $.ajax({
-            type: "get",
-            async: true, //同步执行
-            url: "/data/history?request=" + $("#stockCode").val(),
-            dataType: "json",
-            success: function (result) {
-                if (result) {
-                    for (var i = result.length - 1; i >= 0; i--) {
-                        var o = result[i];
-                        var temp = [];
-                        //console.log(o.date);
-                        axisData.push(o.date);
-
-                        if($("#selectType option:selected").val() == "a") data1.push(o.close);
-                        else if($("#selectType option:selected").val() == "b") data1.push(o.volume);
-                        else if($("#selectType option:selected").val() == "c") data1.push(o.price_change);
-                        else if($("#selectType option:selected").val() == "d") data1.push(o.p_change);
-
-                        //data1.push(o.close);
-                    }
-                    name = $("#stockCode").val();
-                    legendData.push(name);
-
-                    //alert(axisData);
-                    option.legend.data = legendData;
-                    option.xAxis.data = axisData;
-                    option.series[num].data = data1;
-                    option.series[num].name = name;
-
-                    myChart.hideLoading();
-
-                    myChart.setOption(option);
-
-
-//                    setTimeout(function () {
-//                        window.onresize = function () {
-//                            myChart.resize();
-//                        }
-//                    }, 200)
-
-                }
-                num = num + 1;
-                axisData = [];
-                data1 = [];
-                //legendData = [];
-            }
-        });
-
-    }
-
-</script>
-
 </body>
 </html>

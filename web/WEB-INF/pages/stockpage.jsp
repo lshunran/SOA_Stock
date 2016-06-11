@@ -14,6 +14,7 @@
   <title>Stock Zone</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/myCommunitycss.css">
+  <link rel="stylesheet" href="/css/mycss.css">
 </head>
 <>
 
@@ -36,6 +37,7 @@
         <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
         <li class="mytab-li"><a href="/platform">开放平台</a></li>
         <li class="mytab-li"><a href="/company">数据分析</a></li>
+        <li class="mytab-li"><a href="/subscribe">订阅服务</a></li>
        </ul>
 
       <form class="navbar-form navbar-left" action="/stock">
@@ -74,75 +76,6 @@
 
   </div>
 </nav>
-<div class="modal fade bs-example-modal-sm" id="myModal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header myHeader">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4>用户登录</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label class="control-label">username</label>
-            <input type="text" id="username" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label" >password</label>
-            <input type="password"  id="password" class="form-control">
-          </div>
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-primary" id="login-btn"  data-dismiss="modal">登录</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          关闭
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade bs-example-modal-sm" id="myRegisterModal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header myHeader">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4>用户注册</h4>
-      </div>
-      <div class="modal-body">
-
-
-        <form action=/register" method="post">
-          <div class="form-group">
-            <label class="control-label" id="reg-username">username</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label" id="reg-password">password</label>
-            <input type="password" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label">confirm password</label>
-            <input type="password" class="form-control">
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">注册</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          关闭
-        </button>
-      </div>
-      </form>
-        </div>
-    </div>
-  </div>
-</div>
 
 
 <div class="container stock-msg">
@@ -374,7 +307,76 @@
 <br>
 <br>
 
+<div class="modal fade bs-example-modal-sm" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header myHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>用户登录</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="control-label" >username</label>
+          <input type="text" id="username" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="control-label" >password</label>
+          <input type="password" id="password" class="form-control">
+        </div>
 
+        <div class="modal-footer">
+          <button id="login-btn" class="btn btn-primary" data-dismiss="modal">登录</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            关闭
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bs-example-modal-sm" id="myRegisterModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header myHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>用户注册</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/register" method="post">
+          <div class="form-group">
+            <label class="control-label">username</label>
+            <input type="text" name="reg-username" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">password</label>
+            <input type="password" name="reg-password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">confirm password</label>
+            <input type="password" class="form-control"/>
+          </div>
+
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">注册</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              关闭
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 <script src="/jquery-2.1.4.min.js"></script>
@@ -383,7 +385,41 @@
 
 
 
+<script type="application/javascript">
+  $(function(){
 
+
+    $("#login-btn").bind("click",function(){
+      $.ajax({
+        url:"/login",
+        type:"post",
+        data:{username:$("#username").val(),password:$("#password").val()},
+        success:function(data){
+          if(data==1) {
+            $("#mylogin").replaceWith('<button type="button" class="btn btn-primary my-btn" id="mylogin">' + $("#username").val() + '</button>');
+            $("#myregister").remove();
+          }
+          else alert("用户名或密码错了");
+        }
+      })
+    })
+
+
+    $.ajax({
+      url:"/login",
+      type:"post",
+      data:{username:"<%=(String)session.getAttribute("name")%>",password:"<%=(String)session.getAttribute("word")%>"},
+      success:function(data){
+        if(data==1) {
+          $("#mylogin").replaceWith('<button type="button" class="btn btn-primary my-btn" id="mylogin">' + "<%=(String)session.getAttribute("name")%>" + '</button>');
+          $("#myregister").remove();
+
+        }
+      }
+    })
+  })
+
+</script>
 
 
 <script>
