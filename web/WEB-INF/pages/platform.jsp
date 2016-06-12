@@ -27,7 +27,7 @@
                 <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
                 <li class="mytab-li"><a href="/platform">开放平台</a></li>
                 <li class="mytab-li"><a href="/company">数据分析</a></li>
-                <li class="mytab-li"><a href="/subscribe">订阅服务</a></li>
+                <li class="mytab-li"><a href="/subscribe/">订阅服务</a></li>
 
             </ul>
 

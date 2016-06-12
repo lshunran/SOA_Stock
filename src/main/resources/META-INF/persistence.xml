@@ -10,6 +10,8 @@
         <class>entity.Group</class>
         <class>entity.Hold</class>
         <class>entity.Stock</class>
+        <class>entity.Alert</class>
+        <class>entity.Msg</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/stockdb"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
