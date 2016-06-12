@@ -21,7 +21,7 @@ public class AlertDaoImpl implements AlertDao {
     void setEntityManager(EntityManager entityManager) { this.em = entityManager; }
 
 
-    public void add_Alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount) {
+    public void add_Alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount, String stockId) {
         Alert alert = new Alert();
         alert.setUsername(username);
         alert.setLimitup(limitup);
@@ -30,6 +30,7 @@ public class AlertDaoImpl implements AlertDao {
         alert.setBigdeal(bigdeal);
         alert.setVolume(volume);
         alert.setAmount(amount);
+        alert.setStockid(stockId);
         em.persist(alert);
     }
 

@@ -14,8 +14,8 @@ import java.util.List;
 public class AlertService {
     @Autowired
     AlertDao alertDao;
-    public void add_Alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount){
-        alertDao.add_Alert(username,limitup,limitdown,infomine,bigdeal,volume,amount);
+    public void add_Alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount, String stockId){
+        alertDao.add_Alert(username,limitup,limitdown,infomine,bigdeal,volume,amount,stockId);
     }
     public List<Alert> get_AlertByUsername(String username){
         return alertDao.get_AlertByUsername(username);

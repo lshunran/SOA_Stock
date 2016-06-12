@@ -18,6 +18,7 @@ public class Alert {
     private Integer bigdeal;
     private Integer volume;
     private Integer amount;
+    private String stockid;
 
     @Id
     @Column(name = "id")
@@ -129,5 +130,15 @@ public class Alert {
         result = 31 * result + (volume != null ? volume.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "stockid")
+    public String getStockid() {
+        return stockid;
+    }
+
+    public void setStockid(String stockid) {
+        this.stockid = stockid;
     }
 }

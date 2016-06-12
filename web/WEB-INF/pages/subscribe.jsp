@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html ng-app="subscribe" ng-controller="subscribeCtrl">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stock Zone</title>
@@ -76,34 +76,34 @@
     </div>
 
     <h4>输入要订阅的股票的代码:</h4>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" ng-model="stockId">
     <h4>要订阅的内容:</h4>
 
     <div class="row" style="padding-bottom: 15px;">
         <div class="col-md-4">
             <label>
-                <input type="checkbox" ng-model="box1"> 涨停通知
+                <input type="checkbox" ng-model="limitup"> 涨停通知
             </label>
         </div>
         <div class="col-md-4">
             <label>
-                <input type="checkbox" ng-model="box2"> 跌停通知
+                <input type="checkbox" ng-model="limitdown"> 跌停通知
             </label>
         </div>
         <div class="col-md-4">
             <label>
-                <input type="checkbox" ng-model="box2"> 公司公告和资讯
+                <input type="checkbox" ng-model="info"> 公司公告和资讯
             </label>
         </div>
 
     </div>
     <form style="padding-top: 15px">
-        <input type="checkbox" > 大单进场警报
-        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
-        <input type="checkbox"  > 成交量警报
-        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
-        <input type="checkbox" > 成交金额警报
-        <input type="text"  class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:元">
+        <input type="checkbox" ng-model="bigdeal"> 大单进场警报
+        <input type="text" ng-model="bigdealnum" class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
+        <input type="checkbox"  ng-model="volume"> 成交量警报
+        <input type="text"  ng-model="volumenum" class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:手">
+        <input type="checkbox" ng-model="amount"> 成交金额警报
+        <input type="text"  ng-model="amountnum"class="form-control" style="width: 30%" placeholder="设置警报阈值,单位:元">
 
 <br>
     通知方式:
@@ -111,7 +111,7 @@
     <input type="checkbox" > 手机短信
     <input type="text" class="form-control" placeholder="输入手机号码" style="width: 30%">
     </form>
-    <input type="button" class="btn btn-info" value="确认订阅" style="margin-top: 15px">
+    <input type="button" class="btn btn-info" value="确认订阅" style="margin-top: 15px" ng-click="subscribe()">
 </div>
 
 
@@ -190,7 +190,7 @@
 
 <script src="/js/angular.min.js"></script>
 <script src="/js/angular-resource.js"></script>
-<script src="/js/platformCtrl.js"></script>
+<script src="/js/subscribeCtrl.js"></script>
 <script src="/jquery-2.1.4.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script type="application/javascript">

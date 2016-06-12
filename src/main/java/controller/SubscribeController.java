@@ -4,6 +4,7 @@ import entity.Alert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.AlertService;
 import service.MsgService;
@@ -30,10 +31,10 @@ public class SubscribeController {
         return "subscribe";
     }
 
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
     @ResponseBody
-    public void add_alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount){
-        alertService.add_Alert(username,limitup,limitdown,infomine,bigdeal,volume,amount);
+    public void add_alert(String username, int limitup, int limitdown, int infomine, int bigdeal, int volume, int amount,String stockId){
+        alertService.add_Alert(username,limitup,limitdown,infomine,bigdeal,volume,amount,stockId);
     }
 
     @RequestMapping(value = "/getalert")
@@ -52,9 +53,15 @@ public class SubscribeController {
         return result;
     }
 
-    @RequestMapping(value = "/set")
+    @RequestMapping(value = "/setlimit")
     @ResponseBody
-    public void set_msg(String stockCode, String username){
+    public void set_limitmsg(String stockCode, String username){
         msgService.sendLimitMsg(stockCode, username);
+    }
+
+    @RequestMapping(value = "/setother")
+    @ResponseBody
+    public void set_othermsg(String stockCode, String username, int catalog, int num){
+        msgService.sendOtherMsg(stockCode, username,catalog,num);
     }
 }
