@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html ng-app="msg" ng-controller="msgCtrl">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stock Zone</title>
@@ -68,36 +68,20 @@
     </div>
 </nav>
 
-<div class="container" style="width: 50%;padding-top: 80px">
-    <h3>消息中心</h3>
+<div class="container" style="width: 50%;padding-top: 60px">
+    <h2>消息中心 </h2>
     <ul class="media-list" style="padding-top: 20px">
-        <li class="media">
+        <li class="media" ng-repeat="msg in msgs" border:10px solid #000>
             <a class="pull-left" href="#">
-                <img class="media-object" src=" " alt="...">
+                <img class="media-object" width="120px" height="120px" src="/images/admin.png" border="1">
             </a>
             <div class="media-body">
-                <h4 class="media-heading">Media Header</h4>
-                <div>…</div>
+                <h4 class="media-heading">Message Remind</h4>
+                <div class="media-body">{{msg.content}}</div>
+                <div class="media-bottom">{{msg.date}}</div>
             </div>
         </li>
-        <li class="media">
-            <a class="pull-left" href="#">
-                <img class="media-object" src=" " alt="...">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Media Header</h4>
-                <div>…</div>
-            </div>
-        </li>
-        <li class="media">
-        <a class="pull-left" href="#">
-            <img class="media-object" src=" " alt="...">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Media Header</h4>
-            <div>…</div>
-        </div>
-    </li>
+
     </ul>
 </div>
 
@@ -175,9 +159,43 @@
 
 <script src="/js/angular.min.js"></script>
 <script src="/js/angular-resource.js"></script>
-<script src="/js/platformCtrl.js"></script>
+<script src="/js/msgCtrl.js"></script>
 <script src="/jquery-2.1.4.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script type="application/javascript">
+
+    window.setInterval('sendMsg()',5000);
+    function sendMsg() {
+        $.ajax({
+            type: "get",
+            async: true, //同步执行
+            url: "/subscribe/getalert",
+            dataType: "json",
+            data:{username:document.getElementById("mylogin").innerHTML},
+            success: function (result) {
+                if (result) {
+                    //alert("发送成功");
+                }
+            }
+        });
+    }
+
+//    function getMsg() {
+//        $.ajax({
+//            type: "get",
+//            async: true, //同步执行
+//            url: "/subscribe/getalert",
+//            dataType: "json",
+//            data:{username:document.getElementById("mylogin").innerHTML},
+//            success: function (result) {
+//                if (result) {
+//                    //alert("发送成功");
+//                }
+//            }
+//        });
+
+ //   }
+</script>
 <script type="application/javascript">
     $(function(){
 

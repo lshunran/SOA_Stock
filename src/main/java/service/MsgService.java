@@ -1,5 +1,6 @@
 package service;
 
+import dao.MsgDao;
 import dao.StockDao;
 import entity.Msg;
 import net.sf.json.JSONArray;
@@ -11,23 +12,27 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by ashun on 16/6/12.
  */
-@Service
+@Service("MsgService")
 @Transactional
 public class MsgService {
 
     @Autowired
     StockDao stockDao;
+    @Autowired
+    MsgDao msgDao;
 
     private EntityManager em;
     @PersistenceContext
     void setEntityManager(EntityManager entityManager) { this.em = entityManager; }
 
-    public void sendLimitMsg(String stockCode, String username)
+    public void sendLimitMsg(String stockCode, String username, int tag)
     {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
@@ -43,14 +48,14 @@ public class MsgService {
         System.out.print("/////msg:"+price+pre_close);
         float change = (price - pre_close)/pre_close*100;
         String msg_content = "The stock ("+stockCode;
-        if(change > 9.5){
+        if(change > 9.5 && tag == 1){
             Msg msg = new Msg();
             msg.setUsername(username);
             msg.setContent(msg_content+") you subscribe will limit up,Please see the details immediately.");
             msg.setDate(time);
             em.persist(msg);
 
-        }else if (change < -9.5){
+        }else if (change < -9.5 && tag == 0){
             Msg msg = new Msg();
             msg.setUsername(username);
             msg.setContent(msg_content+") you subscribe will limit down,Please see the details immediately.");
@@ -76,7 +81,7 @@ public class MsgService {
         if(catalog == 1 && b1_v >= num){
             Msg msg = new Msg();
             msg.setUsername(username);
-            msg.setContent(msg_content+") you subscribe is Commissioned to buy on large size,Please see the details immediately.");
+            msg.setContent(msg_content+") is Commissioned to buy on large size,Please see the details immediately.");
             msg.setDate(time);
             em.persist(msg);
 
@@ -95,6 +100,14 @@ public class MsgService {
             msg.setDate(time);
             em.persist(msg);
         }
+
+    }
+
+    public List<Msg> getMsg(String username){
+        List<Msg> msg = new ArrayList<Msg>();
+
+        msg = msgDao.getMsg(username);
+        return msg;
 
     }
 }

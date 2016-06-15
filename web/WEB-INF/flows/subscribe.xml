@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+ http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+    <!-- view-state中的view对应jsp文件夹中的jsp页面，on是触发事件，to对应state id -->
+    <!-- 流程文件-2015年6月14日15:51:56 -->
+    <!-- 根据排在第一位的顺序来执行 -->
+
+    <!--<on-start>-->
+        <!--<set name="conversationScope.alert" value="alertservice"></set>-->
+    <!--</on-start>-->
+
+
+    <view-state id="subscribe" view="subscribe">
+        <transition on="addAlert" to="addToAlert">
+        </transition>
+    </view-state>
+
+    <subflow-state id="add" subflow="addToAlert">
+        <transition on="AlertAdded" to="viewAlert" />
+    </subflow-state>
+
+    <action-state id="addToAlert">
+        <on-entry>
+            <set name="requestScope.stockId" value="requestParameters.stockId" />
+            <set name="requestScope.bigdealnum" value="requestParameters.bigdealnum" />
+            <set name="requestScope.volumenum" value="requestParameters.volumenum" />
+            <set name="requestScope.amountnum" value="requestParameters.amountnum" />
+            <set name="requestScope.limitup" value="requestParameters.limitup" />
+            <set name="requestScope.limitdown" value="requestParameters.limitdown" />
+            <set name="requestScope.username" value="requestParameters.username" />
+        </on-entry>
+        <evaluate expression="alertService.add_Alert('admin',limitup,limitdown,0,bigdealnum,volumenum,amountnum,stockId)" />
+        <transition to="msg" />
+    </action-state>
+    <!--<end-state id="AlertAdded" view="homepage"/>-->
+
+
+
+    <view-state id="msg" view="msg">
+        <on-entry>
+            <set name="requestScope.stockId" value="requestParameters.stockId" />
+            <set name="requestScope.tag" value="requestParameters.tag" />
+            <set name="requestScope.catalog" value="requestParameters.catalog" />
+            <set name="requestScope.amountnum" value="requestParameters.amountnum" />
+            <set name="requestScope.limitup" value="requestParameters.limitup" />
+            <set name="requestScope.limitdown" value="requestParameters.limitdown" />
+            <set name="requestScope.username" value="requestParameters.username" />
+        </on-entry>
+        <on-render>
+            <evaluate expression="alertService.get_AlertByUsername('admin',stockId,tag)" result="viewScope.alerts" />
+            <evaluate expression="MsgService.sendLimitMsg(stockId,'admin',tag)"  />
+            <evaluate expression="MsgService.sendOtherMsg(stockId,'admin',catalog,tag)" />
+            <evaluate expression="MsgService.getMsg('admin')" result="viewScope.Msgs" />
+        </on-render>
+        <transition on="getMsg" to="getMsg">
+        </transition>
+    </view-state>
+
+    <end-state id="returnToIndex" view="externalRedirect:servletRelative:/homepage.jsp">
+    </end-state>
+</flow>

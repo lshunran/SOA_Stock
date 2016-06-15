@@ -84,6 +84,31 @@
             <artifactId>stax-api</artifactId>
             <version>1.0-2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-webflow</artifactId>
+            <version>2.4.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-binding</artifactId>
+            <version>2.4.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js</artifactId>
+            <version>2.4.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-faces</artifactId>
+            <version>2.4.2.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 </project>

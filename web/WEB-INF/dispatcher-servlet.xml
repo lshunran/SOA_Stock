@@ -7,8 +7,25 @@
 
        <context:component-scan base-package="controller"/>
        <mvc:annotation-driven/>
-       <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="viewClass"
+                        value="org.springframework.web.servlet.view.JstlView">
+              </property>
               <property name="prefix" value="/WEB-INF/pages/"/>
               <property name="suffix" value=".jsp"/>
+       </bean>
+
+       <bean id="viewMappings"
+             class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+             <property name="mappings">
+                     <value> /subscribe.do=flowController </value>
+              </property>
+              <property name="defaultHandler">
+                     <bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+              </property>
+       </bean>
+       <!-- 我们只要明白 FlowController 可根据客户端请求的结尾部分，找出相应的 flow 来执行。配置 FlowController只需指定FlowExecutor即可 -->
+       <bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
+              <property name="flowExecutor" ref="flowExecutor" />
        </bean>
 </beans>

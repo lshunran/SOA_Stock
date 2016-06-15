@@ -10,6 +10,9 @@
         .controller('subscribeCtrl', subscribeCtrl);
 
     function subscribeCtrl($scope, $rootScope, $resource) {
+        $scope.getName = function () {
+            $scope.name = document.getElementById("mylogin").innerHTML;
+        }
         $scope.subscribe = function () {
             var stockId = $scope.stockId;
             var username = document.getElementById("mylogin").innerHTML;

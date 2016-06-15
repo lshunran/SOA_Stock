@@ -26,7 +26,7 @@
         <li class="mytab-li"><a href="/USAstockpage">美股市场</a></li>
         <li class="mytab-li"><a href="/platform">开放平台</a></li>
         <li class="mytab-li"><a href="/company">数据分析</a></li>
-        <li class="mytab-li"><a href="/subscribe/">订阅服务</a></li>
+        <li class="mytab-li"><a href="/subscribe.do">订阅服务</a></li>
       </ul>
 
       <form class="navbar-form navbar-left" action="/stock">
@@ -220,6 +220,7 @@
     </div>
   </div>
 </div>
+
 <script src="/jquery-2.1.4.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </body>
